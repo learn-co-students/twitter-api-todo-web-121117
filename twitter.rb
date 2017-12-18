@@ -26,14 +26,10 @@ class TwitterApi
   end
 
   def find_followers_for(username)
-    #find the twitter gem method that returns the follows of a given user
-    followers = []
-    client.followers(username).take(10).each do |user|
-      current = {}
-      current[:name] = user.name
-      followers << current
+    # find the twitter gem method that returns the follows of a given user
+    client.followers(username).take(10).map do |user|
+      {:name => user.name}
     end
-    followers
   end
 
   def homepage_timeline
