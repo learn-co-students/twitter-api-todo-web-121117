@@ -16,7 +16,7 @@ describe TwitterApi do
   end
 
   describe "#find_user_for" do
-    it "given a username, it returns the user object" do
+    it "given a username, it returns the Twitter user object" do
       VCR.use_cassette('twitter/find_user_for') do
         user = client.find_user_for("sm_debenedetto")
         expect(user.class).to eq(Twitter::User)
@@ -26,7 +26,7 @@ describe TwitterApi do
   end
 
   describe "#find_followers_for" do
-    it "given a username, it returns the first 10 followers for that user" do
+    it "given a username, it returns an array of the first 10 followers, with each follower's data represented in a hash" do
       VCR.use_cassette('twitter/find_followers_for') do
         user = client.find_followers_for("sm_debenedetto")
         expect(user).to be_a(Array)
