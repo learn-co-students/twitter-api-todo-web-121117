@@ -17,31 +17,34 @@ class TwitterApi
 
 
   def most_recent_friend
-    self.client.friends.first
+    self.client.friends.first.name
   end
 
   def find_user_for(username)
-    self.client.user(username)
+    self.client.user(username).name
   end
 
   def find_followers_for(username)
-    self.client.followers(username).attrs[:users][0..9]
+    self.client.followers(username).attrs[:users][0..9].map do |user|
+      user[:name]
+    end
   end
 
   def homepage_timeline
-    self.client.home_timeline
+    self.client.home_timeline.map do |tweet|
+      tweet.text
+    end
   end
 
 end
 
-# Pry.start
-#Bonus:
-
+# Bonus:
+#
 # uncomment out the following and read the bonus instructions.
 # remember to comment out the WebMock line of your spec_helper, as the instructions dictate.
 
-# tweet_client = TwitterApi.new
-# puts tweet_client.most_recent_friend
-# puts tweet_client.find_user_for("USERNAME HERE")
-# puts tweet_client.find_followers_for("USERNAME HERE")
-# puts tweet_client.homepage_timeline
+tweet_client = TwitterApi.new
+puts tweet_client.most_recent_friend
+puts tweet_client.find_user_for("julesdotnyc")
+puts tweet_client.find_followers_for("julesdotnyc")
+puts tweet_client.homepage_timeline
