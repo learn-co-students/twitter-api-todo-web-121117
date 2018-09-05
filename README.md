@@ -7,7 +7,7 @@
 
 ## Introduction
 
-In this lab, we'll be working with the [Twitter API](https://dev.twitter.com/docs/api/1.1). In order to interact with this API, Twitter requires that we sign up for an API key.
+In this lab, we'll be working with the [Twitter API]( developer.twitter.com). In order to interact with this API, Twitter requires that we sign up for an API key.
 
 **Note that the results of the test suite for this lab is based on the [VCR Fixtures](https://github.com/vcr/vcr) in `spec/vcr/twitter`**
 
@@ -48,7 +48,7 @@ In this lab, you'll be storing your API keys in an `application.yml` file. Once 
 
 *Make sure you `bundle install` from the terminal in the directory of this lab to get the necessary gems!*
 
-1 . Let's get our API key! If you don't have a Twitter account, sign up for one first. Twitter, by the way, is an important communication space for the tech community. You don't have to tweet about celebrities! You can follow your favorite developers and companies and learn about new technologies––not to mention share your own work and questions! Okay, now that we all have Twitter accounts, let's create a new application on Twitter to get our API keys. You can do that at [Twitter Apps](https://apps.twitter.com/). Navigate to the the `API Keys` section of your application page, and, scroll down and click the "generate access token" button to get your consumer token, consumer secret, access token and access token secret. **Important:** If the Twitter API gives you an error when you try to generate your access token and access secret, you can use the following fake tokens for the purpose of the test suite. If you have to use fake tokens, note that you will be unable to complete the bonus section of this lab. 
+1 . Let's get our API key! If you don't have a Twitter account, sign up for one first. Twitter, by the way, is an important communication space for the tech community. You don't have to tweet about celebrities! You can follow your favorite developers and companies and learn about new technologies––not to mention share your own work and questions! Okay, now that we all have Twitter accounts, let's create a new application on Twitter to get our API keys. You can do that at [Twitter Apps](https://apps.twitter.com/). Navigate to the `API Keys` section of your application page, and, scroll down and click the "generate access token" button to get your consumer token, consumer secret, access token and access token secret. **Important:** If the Twitter API gives you an error when you try to generate your access token and access secret, you can use the following fake tokens for the purpose of the test suite. If you have to use fake tokens, note that you will be unable to complete the bonus section of this lab. 
 
 Fake tokens:
 
@@ -70,7 +70,7 @@ CONSUMER_SECRET: your consumer secret!
   * Notice that the gem is being required at the top of the `twitter.rb` file with the `require 'twitter'` line.
   * Notice the first line of your `#initialize` method handles loading the `application.yml` file and setting its contents equal to a `keys` variable. Now, you can access those keys as if they were a hash.
   * Now that you have your API keys and tokens, the code below will handle your connection to the Twitter API via the client. The client handles the authentication aspect of requesting data from the API––it will make the appropriate request for us, depending on what data we want from the API, and, because it already contains our keys and secrets, it will authenticate us with the API.
-  * Fill out the methods in the `twitter.rb` to use the approprate Twitter gem methods. The Twitter gem includes methods to handle common actions like finding a particular user's followers.
+  * Fill out the methods in the `twitter.rb` to use the appropriate Twitter gem methods. The Twitter gem includes methods to handle common actions like finding a particular user's followers.
   * Let's go through one example together: Now that you've configured your client, you'll notice that there is an `attr_accessor` method, `client`. Since, as we discussed, the client handles our authentication with the Twitter API, any subsequent Twitter gem methods will need to be called on `client`.
   * Let's take a look at the example method below:
 
@@ -81,14 +81,14 @@ CONSUMER_SECRET: your consumer secret!
   end
   ```
 
-  * According to the [documentation](https://github.com/sferik/twitter) for the Twitter gem, there is a method, `.friends`, that we can call on our configered client (stored in the `client` getter method). Thus, we can request a list of the client's friends from the Twitter API like this:
+  * According to the [documentation](https://github.com/sferik/twitter) for the Twitter gem, there is a method, `.friends`, that we can call on our configured client (stored in the `client` getter method). Thus, we can request a list of the client's friends from the Twitter API like this:
 
   ```ruby
 def get_friends
    client.friends
 end
   ```
-  * To get these tests passing, use the example above and the [documentation](https://github.com/sferik/twitter) for the Twitter gem, or refer to the [API docs](https://dev.twitter.com/docs/api/1.1) if it's unclear what the Twitter gem commands are doing. If you're stuck, be sure to look at the additional documentation [located here](http://www.rubydoc.info/list/gems/twitter/method), which details all the methods that are at your disposal. This lab is test-driven, so use the spec file and the above resources to get the tests passing. This lab is designed to help you get comfortable navigating the documentation of an API gem. So, don't get frustrated if you don't know the gem methods you need to employ for each test. We haven't taught them to you! Instead, we are letting you know the desired *behavior*, and you are using the gem's documentation to help you find the right tools.
+  * To get these tests passing, use the example above and the [documentation](https://github.com/sferik/twitter) for the Twitter gem, or refer to the [API docs](https://developer.twitter.com) if it's unclear what the Twitter gem commands are doing. If you're stuck, be sure to look at the additional documentation [located here](http://www.rubydoc.info/list/gems/twitter/method), which details all the methods that are at your disposal. This lab is test-driven, so use the spec file and the above resources to get the tests passing. This lab is designed to help you get comfortable navigating the documentation of an API gem. So, don't get frustrated if you don't know the gem methods you need to employ for each test. We haven't taught them to you! Instead, we are letting you know the desired *behavior*, and you are using the gem's documentation to help you find the right tools.
 
 ### Bonus
 
@@ -115,7 +115,8 @@ WebMock.disable_net_connect!(allow_localhost: true)
 You did it! Don't forget to un-comment out `WebMock.disable_net_connect!(allow_localhost: true)` in the `spec_helper.rb` file before pushing up your code!
 
 ## Resources
-* [Twitter](https://dev.twitter.com/)
+
+* [Twitter for Developers](https:// developer.twitter.com)
 * [Twitter Gem](https://github.com/sferik/twitter)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/twitter-api-todo' title='Twitter API Lab'>Twitter API Lab</a> on Learn.co and start learning to code for free.</p>
